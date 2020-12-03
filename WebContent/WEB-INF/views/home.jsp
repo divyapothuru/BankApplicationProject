@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>HCL BANKING APPLICATION</title>
+<style type="text/css">
+a {
+	align-content: center;
+}
+a {
+  color: green;
+}
+</style>
+</head>
+<body>
+<br>
+ <h2>hello Bank, ${sessionScope.user.userType}</h2>  <br>
+<c:if test="${sessionScope.user.userType == 'Admin'}">
+	<a href="createaccount"> Create New Bank Account </a> <br>
+	<a href="adduser"> Create New  User </a> <br>
+	<a href="showallaccounts"> show all accounts </a> <br>
+	<a href="showallusers"> show all users </a> <br>
+	
+	<a href="logout"> Logout </a>
+	
+</c:if>
+
+<c:if test="${sessionScope.user.userType == 'Manager'}">
+    <a href="showallaccounts"> show all accounts </a> <br>
+	<a href="showallusers"> show all users </a> <br>
+	<a href="transfer"> Transfer Money</a> <br>
+	<a href="withdraw"> Withdraw Money</a> <br>
+	<a href="deposit"> Deposit Money </a> <br>
+	<a href="logout"> Logout </a>
+</c:if>
+</body>
+</html>
